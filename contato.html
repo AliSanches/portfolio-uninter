@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alison Sanches | Contato</title>
+  <meta name="description" content="Entre em contato com Alison Sanches.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    (function () {
+      var tema = localStorage.getItem("tema");
+      if (tema === "light") document.documentElement.setAttribute("data-theme", "light");
+    })();
+  </script>
+</head>
+<body class="pagina-contato">
+
+  <!-- menu fixo: igual em todas as páginas -->
+  <header class="cabecalho">
+    <div class="container cabecalho-inner">
+      <a href="index.html" class="logo">AS<span>.</span></a>
+
+      <nav class="menu" id="menu">
+        <a href="index.html" class="nav-sobre">Sobre</a>
+        <a href="formacao.html" class="nav-formacao">Formação</a>
+        <a href="portfolio.html" class="nav-portfolio">Portfólio</a>
+        <a href="contato.html" class="nav-contato">Contato</a>
+      </nav>
+
+      <div class="acoes">
+        <button class="btn-tema" id="btn-tema" aria-label="Alternar entre tema claro e escuro">
+          <span class="icone-sol">☀️</span>
+          <span class="icone-lua">🌙</span>
+        </button>
+        <button class="btn-menu" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="secao">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// fale comigo</span>
+          <h2>Contato</h2>
+        </div>
+
+        <div class="contato-layout">
+          <!-- o envio é simulado: valida os campos e mostra a mensagem de sucesso -->
+          <form class="glass-card form-contato reveal" id="form-contato" novalidate>
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name">
+              <small class="msg-erro">Informe seu nome completo</small>
+            </div>
+
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email">
+              <small class="msg-erro">Informe um e-mail válido</small>
+            </div>
+
+            <div class="campo">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..."></textarea>
+              <small class="msg-erro">A mensagem precisa ter pelo menos 10 caracteres</small>
+            </div>
+
+            <button type="submit" class="btn btn-primario">Enviar mensagem</button>
+
+            <p class="sucesso" id="sucesso">✓ Mensagem enviada com sucesso!</p>
+          </form>
+
+          <div class="cards-contato">
+            <div class="glass-card card-contato reveal">
+              <span class="emoji">✉️</span>
+              <div>
+                <p class="tipo">E-mail</p>
+                <a class="valor" href="mailto:alissonsanches54@gmail.com">alissonsanches54@gmail.com</a>
+              </div>
+            </div>
+            <div class="glass-card card-contato reveal">
+              <span class="emoji">🐙</span>
+              <div>
+                <p class="tipo">GitHub</p>
+                <a class="valor" href="https://github.com/AliSanches" target="_blank" rel="noopener">github.com/AliSanches</a>
+              </div>
+            </div>
+            <div class="glass-card card-contato reveal">
+              <span class="emoji">💼</span>
+              <div>
+                <p class="tipo">LinkedIn</p>
+                <a class="valor" href="https://www.linkedin.com/in/alisson-sanches-b79039211/" target="_blank" rel="noopener">linkedin.com/in/alisson-sanches-b79039211</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p>© 2026 Todos os direitos reservados</p>
+      <div class="rodape-links">
+        <a href="https://github.com/AliSanches" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/alisson-sanches-b79039211/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alissonsanches54@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

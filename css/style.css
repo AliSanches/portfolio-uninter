@@ -1,0 +1,760 @@
+/* ============================================================
+   Portfólio — Alison Sanches
+   CSS puro, sem frameworks (requisito da disciplina)
+   ============================================================ */
+
+/* ---------- Variáveis e temas ---------- */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-pontos: rgba(255, 255, 255, 0.05);       /* pontinhos do fundo */
+  --superficie: rgba(255, 255, 255, 0.06);
+  --superficie-hover: rgba(255, 255, 255, 0.1);
+  --borda: rgba(255, 255, 255, 0.1);
+  --texto: #ededed;
+  --texto-suave: rgba(255, 255, 255, 0.6);
+  --accent: #a78bfa;
+  --accent-forte: #59168b;
+  --accent-fundo: rgba(167, 139, 250, 0.15);     /* fundo das badges */
+  --linkedin: #0a66c2;
+  --erro: #f87171;
+  --sucesso: #4ade80;
+  --cabecalho-fundo: rgba(10, 10, 10, 0.7);
+  --raio: 1rem;
+  --fonte: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-mono: "Geist Mono", ui-monospace, "Cascadia Mono", monospace;
+}
+
+/* tema claro — troca só as variáveis */
+html[data-theme="light"] {
+  --bg: #f3f4f6;
+  --bg-pontos: rgba(0, 0, 0, 0.05);
+  --superficie: #ffffff;
+  --superficie-hover: #f9fafb;
+  --borda: rgba(0, 0, 0, 0.1);
+  --texto: #0a0a0a;
+  --texto-suave: rgba(0, 0, 0, 0.6);
+  --accent: #7c3aed;
+  --accent-forte: #59168b;
+  --accent-fundo: rgba(124, 58, 237, 0.1);
+  --cabecalho-fundo: rgba(243, 244, 246, 0.8);
+}
+
+/* ---------- Reset básico ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--bg);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* pontinhos no fundo, igual ao layout original */
+  background-image: radial-gradient(var(--bg-pontos) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-forte);
+}
+
+ul {
+  list-style: none;
+}
+
+/* destaque visível pra quem navega por teclado */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Utilitários ---------- */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.secao {
+  padding: 4rem 0;
+}
+
+.titulo-secao {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.titulo-secao .rotulo {
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.titulo-secao h2 {
+  font-size: 1.8rem;
+  margin-top: 0.4rem;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cabecalho-fundo);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 4rem;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--texto);
+  letter-spacing: 0.05em;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu a {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.menu a:hover {
+  color: var(--texto);
+  background-color: var(--superficie);
+}
+
+/* link da página atual fica destacado (classe no body de cada página) */
+body.pagina-sobre .nav-sobre,
+body.pagina-formacao .nav-formacao,
+body.pagina-portfolio .nav-portfolio,
+body.pagina-contato .nav-contato {
+  color: var(--accent);
+  background-color: var(--accent-fundo);
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-tema {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-tema:hover {
+  background-color: var(--superficie-hover);
+  transform: translateY(-1px);
+}
+
+/* mostra só o ícone que combina com o tema atual */
+.btn-tema .icone-lua { display: none; }
+html[data-theme="light"] .btn-tema .icone-sol { display: none; }
+html[data-theme="light"] .btn-tema .icone-lua { display: inline; }
+
+/* hamburger — aparece só no mobile */
+.btn-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  padding: 0 0.55rem;
+}
+
+.btn-menu span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--texto);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+/* vira um X quando o menu está aberto */
+.btn-menu.aberto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.btn-menu.aberto span:nth-child(2) { opacity: 0; }
+.btn-menu.aberto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-fundo {
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 20%, var(--bg) 95%);
+}
+
+.hero-conteudo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 1.5rem 6rem;
+}
+
+.hero-foto {
+  width: 8.5rem;
+  height: 8.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 40px rgba(167, 139, 250, 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.hero-nome {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--accent), #e879f9, var(--accent));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+.hero-arroba {
+  font-family: var(--fonte-mono);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+.hero-cargo {
+  margin-top: 1rem;
+}
+
+.hero-tagline {
+  color: var(--texto-suave);
+  max-width: 34rem;
+  margin-top: 0.8rem;
+}
+
+.hero-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+
+/* ---------- Badges, botões e cards ---------- */
+
+.badge {
+  display: inline-block;
+  background: var(--accent-fundo);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+}
+
+.btn-outline:hover {
+  background: var(--superficie-hover);
+  color: var(--texto);
+}
+
+.btn-primario {
+  background: linear-gradient(135deg, var(--accent), var(--accent-forte));
+  border: none;
+  color: #fff;
+}
+
+.btn-primario:hover {
+  color: #fff;
+  filter: brightness(1.1);
+}
+
+.btn-linkedin {
+  background: var(--linkedin);
+  border: none;
+  color: #fff;
+}
+
+.btn-linkedin:hover {
+  color: #fff;
+  filter: brightness(1.1);
+}
+
+.glass-card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  transition: transform 0.25s, background-color 0.25s, border-color 0.25s;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  background: var(--superficie-hover);
+  border-color: var(--accent);
+}
+
+/* ---------- Tecnologias (página Sobre) ---------- */
+
+.grid-tech {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.card-tech {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+
+.card-tech .icone {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-tech h3 {
+  font-size: 1rem;
+}
+
+.card-tech p {
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+.card-tech .nivel {
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+}
+
+/* ---------- Hobbies ---------- */
+
+.grid-hobbies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.card-hobby {
+  text-align: center;
+}
+
+.card-hobby .emoji {
+  font-size: 2rem;
+}
+
+.card-hobby h3 {
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+/* ---------- Formação ---------- */
+
+.grid-formacao {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.item-formacao h3 {
+  font-size: 1.05rem;
+}
+
+.item-formacao .instituicao {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.item-formacao .periodo {
+  font-family: var(--fonte-mono);
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.item-formacao p {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Projetos (página Portfólio) ---------- */
+
+.grid-projetos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.card-projeto {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+.card-projeto img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card-projeto-corpo {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.card-projeto h3 {
+  font-size: 1.1rem;
+}
+
+.card-projeto .descricao {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.card-projeto .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.card-projeto .sem-imagem {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, var(--accent-fundo), transparent);
+}
+
+/* ---------- Contato ---------- */
+
+.contato-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-fundo);
+}
+
+/* campo com erro de validação */
+.campo.erro input,
+.campo.erro textarea {
+  border-color: var(--erro);
+}
+
+.msg-erro {
+  display: none;
+  color: var(--erro);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.campo.erro .msg-erro {
+  display: block;
+}
+
+/* mensagem de sucesso do envio simulado */
+.sucesso {
+  display: none;
+  text-align: center;
+  padding: 1.2rem;
+  border-radius: var(--raio);
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid var(--sucesso);
+  color: var(--sucesso);
+  font-weight: 600;
+}
+
+.sucesso.visivel {
+  display: block;
+}
+
+.cards-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-contato {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.card-contato .emoji {
+  font-size: 1.5rem;
+}
+
+.card-contato .tipo {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.card-contato .valor {
+  font-weight: 600;
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  border-top: 1px solid var(--borda);
+  padding: 1.6rem 0;
+  margin-top: 3rem;
+}
+
+.rodape-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+.rodape-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.rodape-links a {
+  color: var(--texto-suave);
+}
+
+.rodape-links a:hover {
+  color: var(--texto);
+}
+
+/* ---------- Animação de entrada ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 768px) {
+  .secao {
+    padding: 2.5rem 0;
+  }
+
+  .menu {
+    display: none;               /* some do header... */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background: var(--cabecalho-fundo);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borda);
+    padding: 0.8rem 1.2rem 1.2rem;
+  }
+
+  .menu.aberto {
+    display: flex;               /* ...e aparece como painel ao abrir */
+  }
+
+  .menu a {
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+  }
+
+  .btn-menu {
+    display: flex;
+  }
+
+  .hero-conteudo {
+    padding: 3.5rem 1.5rem 4.5rem;
+  }
+
+  .grid-tech,
+  .grid-hobbies,
+  .grid-formacao,
+  .grid-projetos,
+  .contato-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* quem prefere menos movimento não vê as animações */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

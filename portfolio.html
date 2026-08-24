@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alison Sanches | Portfólio</title>
+  <meta name="description" content="Projetos desenvolvidos por Alison Sanches.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    (function () {
+      var tema = localStorage.getItem("tema");
+      if (tema === "light") document.documentElement.setAttribute("data-theme", "light");
+    })();
+  </script>
+</head>
+<body class="pagina-portfolio">
+
+  <!-- menu fixo: igual em todas as páginas -->
+  <header class="cabecalho">
+    <div class="container cabecalho-inner">
+      <a href="index.html" class="logo">AS<span>.</span></a>
+
+      <nav class="menu" id="menu">
+        <a href="index.html" class="nav-sobre">Sobre</a>
+        <a href="formacao.html" class="nav-formacao">Formação</a>
+        <a href="portfolio.html" class="nav-portfolio">Portfólio</a>
+        <a href="contato.html" class="nav-contato">Contato</a>
+      </nav>
+
+      <div class="acoes">
+        <button class="btn-tema" id="btn-tema" aria-label="Alternar entre tema claro e escuro">
+          <span class="icone-sol">☀️</span>
+          <span class="icone-lua">🌙</span>
+        </button>
+        <button class="btn-menu" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="secao">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// trabalhos</span>
+          <h2>Portfólio</h2>
+        </div>
+
+        <div class="grid-projetos">
+          <article class="glass-card card-projeto reveal">
+            <img src="assets/images/senac.jpg" alt="Screenshot do projeto Senac" loading="lazy">
+            <div class="card-projeto-corpo">
+              <h3>Sistema de Reserva</h3>
+              <p class="descricao">Projeto desenvolvido para facilitar o gerenciamento de reserva de salas</p>
+              <div class="tags">
+                <span class="badge">Nest.js</span>
+                <span class="badge">PostgreSQL</span>
+                <span class="badge">React</span>
+                <span class="badge">Bootstrap</span>
+              </div>
+              <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">Ver no GitHub</a>
+            </div>
+          </article>
+
+          <article class="glass-card card-projeto reveal">
+            <img src="assets/images/lanchonete.jpg" alt="Screenshot do sistema Lanchonete" loading="lazy">
+            <div class="card-projeto-corpo">
+              <h3>Lanchonete</h3>
+              <p class="descricao">Um sistema de simples operação de estoque para lanchonete com PDV</p>
+              <div class="tags">
+                <span class="badge">C#</span>
+                <span class="badge">MySql</span>
+              </div>
+              <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">Ver no GitHub</a>
+            </div>
+          </article>
+
+          <article class="glass-card card-projeto reveal">
+            <img src="assets/images/login.jpg" alt="Screenshot da tela de login" loading="lazy">d
+            <div class="card-projeto-corpo">
+              <h3>Lumem</h3>
+              <p class="descricao">Sistema (ERP) com propósito focado em simplicidade nas operações</p>
+              <div class="tags">
+                <span class="badge">Next</span>
+                <span class="badge">Tailwind CSS</span>
+                <span class="badge">Nestjs</span>
+                <span class="badge">Supabase</span>
+              </div>
+              <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">Ver no GitHub</a>
+            </div>
+          </article>
+
+          <article class="glass-card card-projeto reveal">
+            <img src="assets/images/dream-music.jpg" alt="Screenshot do site Dream Music" loading="lazy">
+            <div class="card-projeto-corpo">
+              <h3>Dream Music</h3>
+              <p class="descricao">Site simples com música interativa utilizando o método Pomodoro</p>
+              <div class="tags">
+                <span class="badge">Html</span>
+                <span class="badge">Css</span>
+                <span class="badge">Javascript</span>
+              </div>
+              <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">Ver no GitHub</a>
+            </div>
+          </article>
+
+
+          <article class="glass-card card-projeto reveal">
+            <img src="assets/images/visual.jpg" alt="Screenshot do projeto Visual" loading="lazy">
+            <div class="card-projeto-corpo">
+              <h3>Visual</h3>
+              <div class="tags">
+                <span class="badge">Projeto acadêmico</span>
+              </div>
+              <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">Ver no GitHub</a>
+            </div>
+          </article>
+
+          <article class="glass-card card-projeto reveal">
+            <img src="assets/images/gerador-senha.jpg" alt="Screenshot do gerador de senha" loading="lazy">
+            <div class="card-projeto-corpo">
+              <h3>Gerador de Senha</h3>
+              <div class="tags">
+                <span class="badge">Projeto acadêmico</span>
+              </div>
+              <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">Ver no GitHub</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="hero-arroba" style="text-align: center; margin-top: 2rem;">Demais projetos disponíveis no GitHub.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p>© 2026 Todos os direitos reservados</p>
+      <div class="rodape-links">
+        <a href="https://github.com/AliSanches" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/alisson-sanches-b79039211/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alissonsanches54@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

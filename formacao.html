@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alison Sanches | Formação</title>
+  <meta name="description" content="Formação acadêmica e experiência profissional de Alison Sanches.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    (function () {
+      var tema = localStorage.getItem("tema");
+      if (tema === "light") document.documentElement.setAttribute("data-theme", "light");
+    })();
+  </script>
+</head>
+<body class="pagina-formacao">
+
+  <!-- menu fixo: igual em todas as páginas -->
+  <header class="cabecalho">
+    <div class="container cabecalho-inner">
+      <a href="index.html" class="logo">AS<span>.</span></a>
+
+      <nav class="menu" id="menu">
+        <a href="index.html" class="nav-sobre">Sobre</a>
+        <a href="formacao.html" class="nav-formacao">Formação</a>
+        <a href="portfolio.html" class="nav-portfolio">Portfólio</a>
+        <a href="contato.html" class="nav-contato">Contato</a>
+      </nav>
+
+      <div class="acoes">
+        <button class="btn-tema" id="btn-tema" aria-label="Alternar entre tema claro e escuro">
+          <span class="icone-sol">☀️</span>
+          <span class="icone-lua">🌙</span>
+        </button>
+        <button class="btn-menu" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="secao">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// estudos</span>
+          <h2>Formação Acadêmica</h2>
+        </div>
+
+        <div class="grid-formacao">
+          <article class="glass-card item-formacao reveal">
+            <h3>Desenvolvimento de Sistemas</h3>
+            <p class="instituicao">UNINTER — Centro Universitário Internacional</p>
+            <span class="periodo">2024 — atualmente</span>
+          </article>
+
+          <article class="glass-card item-formacao reveal">
+            <h3>Técnico em Informática</h3>
+            <p class="instituicao">SENAC</p>
+            <span class="periodo">2023 — 2024</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" style="padding-top: 0;">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// na prática</span>
+          <h2>Projetos Acadêmicos</h2>
+        </div>
+
+        <div class="grid-formacao">
+          <article class="glass-card item-formacao reveal">
+            <h3>Projeto curricular — Web Desenvolvimento</h3>
+            <p class="instituicao">Sistema de Reserva de Salas</p>
+            <span class="periodo">2025</span>
+            <p>Aplicação web para facilitar o gerenciamento de reserva de salas, desenvolvida do zero até a entrega final.</p>
+          </article>
+
+          <article class="glass-card item-formacao reveal">
+            <h3>Projeto curricular — Desktop Desenvolvimento</h3>
+            <p class="instituicao">PDV para Lanchonetes</p>
+            <span class="periodo">2025</span>
+            <p>Sistema desktop de ponto de venda com controle de estoque para lanchonetes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" style="padding-top: 0;">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// carreira</span>
+          <h2>Experiência Profissional</h2>
+        </div>
+
+        <div class="grid-formacao">
+          <article class="glass-card item-formacao reveal">
+            <h3>Desenvolvedor de Sistemas ERP</h3>
+            <span class="periodo">2026 — PRESENTE</span>
+            <p>
+              Desenvolvimento e manutenção de soluções para sistemas ERP em Delphi, incluindo criação
+              de funcionalidades, integrações com sistemas terceiros, consultas e validações em SQL,
+              correção de bugs e versionamento de código com Git, com grande atuação em regra de negócios.
+            </p>
+          </article>
+
+          <article class="glass-card item-formacao reveal">
+            <h3>Desenvolvedor Web</h3>
+            <span class="periodo">2023 - PRESENTE</span>
+            <p>
+              Desenvolvimento de novas funcionalidades e melhorias utilizando React.js, TypeScript,
+              Chakra UI e Zustand, com foco em responsividade e interação do usuário. Também atuo na
+              manutenção do backend, incluindo cálculos financeiros e criação de middlewares com
+              Express, NestJS e JWT.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" style="padding-top: 0;">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// idiomas</span>
+          <h2>Idiomas</h2>
+        </div>
+
+        <div class="grid-formacao">
+          <article class="glass-card item-formacao reveal">
+            <h3>🇧🇷 Português</h3>
+            <p class="instituicao">Nativo</p>
+          </article>
+
+          <article class="glass-card item-formacao reveal">
+            <h3>🇺🇸 Inglês</h3>
+            <p class="instituicao">Básico</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p>© 2026 Todos os direitos reservados</p>
+      <div class="rodape-links">
+        <a href="https://github.com/AliSanches" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/alisson-sanches-b79039211/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alissonsanches54@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

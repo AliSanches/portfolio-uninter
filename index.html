@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alison Sanches | Sobre</title>
+  <meta name="description" content="Portfólio de Alison Sanches, desenvolvedor full stack.">
+
+  <!-- fonte Geist (não é framework, só tipografia) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    (function () {
+      var tema = localStorage.getItem("tema");
+      if (tema === "light") document.documentElement.setAttribute("data-theme", "light");
+    })();
+  </script>
+</head>
+<body class="pagina-sobre">
+
+  <!-- menu fixo: igual em todas as páginas -->
+  <header class="cabecalho">
+    <div class="container cabecalho-inner">
+      <a href="index.html" class="logo">AS<span>.</span></a>
+
+      <nav class="menu" id="menu">
+        <a href="index.html" class="nav-sobre">Sobre</a>
+        <a href="formacao.html" class="nav-formacao">Formação</a>
+        <a href="portfolio.html" class="nav-portfolio">Portfólio</a>
+        <a href="contato.html" class="nav-contato">Contato</a>
+      </nav>
+
+      <div class="acoes">
+        <button class="btn-tema" id="btn-tema" aria-label="Alternar entre tema claro e escuro">
+          <span class="icone-sol">☀️</span>
+          <span class="icone-lua">🌙</span>
+        </button>
+        <button class="btn-menu" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- apresentação com banner de fundo -->
+    <section class="hero">
+      <div class="hero-fundo" role="img" aria-label="Banner de fundo do perfil"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-conteudo">
+        <img src="assets/images/IMG_2121.jpg" alt="Foto de perfil de Alison Sanches" class="hero-foto">
+        <h1 class="hero-nome shimmer-text">Alison Sanches</h1>
+        <p class="hero-arroba">@alisonsanches</p>
+        <div class="hero-cargo">
+          <span class="badge">Desenvolvedor Full Stack</span>
+        </div>
+        <p class="hero-tagline">Construindo aplicações web modernas com Next, Nest.js e TypeScript.</p>
+        <div class="hero-botoes">
+          <a href="https://github.com/AliSanches" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+          <a href="https://www.linkedin.com/in/alisson-sanches-b79039211/" target="_blank" rel="noopener" class="btn btn-linkedin">LinkedIn</a>
+          <a href="mailto:alissonsanches54@gmail.com" class="btn btn-outline">E-mail</a>
+          <a href="assets/cv/CV-Alisson.pdf" target="_blank" class="btn btn-primario">Currículo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- um pouco sobre mim -->
+    <section class="secao">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// quem sou</span>
+          <h2>Sobre mim</h2>
+        </div>
+        <div class="glass-card reveal" style="max-width: 46rem; margin: 0 auto;">
+          <p>
+            Olá! Meu nome é Alison e sou desenvolvedor full stack. Trabalho principalmente com
+            TypeScript no front e no back: React e Next.js do lado do cliente, Nest.js no servidor,
+            com PostgreSQL e Supabase cuidando dos dados.
+          </p>
+          <p style="margin-top: 0.8rem;">
+            Gosto de construir coisas que resolvem problemas reais, desde a modelagem do banco até a
+            interface. Também curto DevOps — Docker, CI/CD e deploy na Vercel ou AWS fazem parte do
+            meu dia a dia. Aqui você encontra um pouco da minha trajetória, minha formação e os
+            projetos que já tirei do papel.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- hobbies -->
+    <section class="secao" style="padding-top: 0;">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// fora do código</span>
+          <h2>Hobbies</h2>
+        </div>
+        <div class="grid-hobbies">
+          <div class="glass-card card-hobby reveal">
+            <span class="emoji">🎮</span>
+            <h3>Games</h3>
+            <p>Uma boa campanha ou um multiplayer com os amigos.</p>
+          </div>
+          <div class="glass-card card-hobby reveal">
+            <span class="emoji">🏋️</span>
+            <h3>Academia</h3>
+            <p>Treino pra manter o corpo e a mente em dia.</p>
+          </div>
+          <div class="glass-card card-hobby reveal">
+            <span class="emoji">💡</span>
+            <h3>Aprender</h3>
+            <p>Estar sempre testando tecnologia e ferramenta nova.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- stack -->
+    <section class="secao" style="padding-top: 0;">
+      <div class="container">
+        <div class="titulo-secao reveal">
+          <span class="rotulo">// stack</span>
+          <h2>Tecnologias</h2>
+        </div>
+        <div class="grid-tech">
+          <div class="glass-card card-tech reveal">
+            <span class="icone">📘</span>
+            <h3>Linguagem</h3>
+            <span class="badge nivel">TypeScript · Avançado</span>
+            <p>+2 anos</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">⚛️</span>
+            <h3>Frontend</h3>
+            <span class="badge nivel">React &amp; Next.js</span>
+            <p>SSR, Hooks</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">🚀</span>
+            <h3>Backend</h3>
+            <span class="badge nivel">Nest.js</span>
+            <p>Express, Fastify</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">🗄️</span>
+            <h3>Banco de Dados</h3>
+            <span class="badge nivel">PostgreSQL &amp; Supabase</span>
+            <p>SQL, Prisma</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">🎨</span>
+            <h3>Estilo</h3>
+            <span class="badge nivel">Tailwind CSS</span>
+            <p>Utility-first, Design Systems</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">🐳</span>
+            <h3>DevOps</h3>
+            <span class="badge nivel">Docker</span>
+            <p>Containers, CI/CD</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">🔧</span>
+            <h3>Ferramenta</h3>
+            <span class="badge nivel">Git &amp; GitHub</span>
+            <p>Versionamento, Code Review</p>
+          </div>
+          <div class="glass-card card-tech reveal">
+            <span class="icone">☁️</span>
+            <h3>Cloud</h3>
+            <span class="badge nivel">Vercel / AWS</span>
+            <p>Deploy, Serverless</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p>© 2026 Todos os direitos reservados</p>
+      <div class="rodape-links">
+        <a href="https://github.com/AliSanches" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/alisson-sanches-b79039211/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:alissonsanches54@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
